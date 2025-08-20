@@ -1,0 +1,15 @@
+<div class="simple-content-block text-{{ self.alignment }}">
+    {% if self.title %}
+        <h3>{{ self.title }}</h3>
+    {% endif %}
+
+    {% if self.image %}
+        <div class="image">
+            <img src="{{ self.image.url }}" alt="{{ self.image.title }}">
+        </div>
+    {% endif %}
+
+    <div class="content">
+        {{ self.content }}
+    </div>
+</div>

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block content %}
+    <article>
+        <h2>{{ page.title }}</h2>
+        <p><strong>Дата:</strong> {{ page.date }}</p>
+        <p><em>{{ page.intro }}</em></p>
+
+        <div class="content">
+            {% for block in page.body %}
+                <section class="content-block">
+                    {% include_block block %}
+                </section>
+            {% endfor %}
+        </div>
+
+        <a href="{% pageurl page.get_parent %}">← Назад к списку</a>
+    </article>
+{% endblock %}
